@@ -17,10 +17,14 @@ def grafico_velocidadeu():
           if i==0:
             continue
           else:
-            for linhas in arquivo_csv:          
-              u.append(float(linhas[1]))
-              x1.append(float(linhas[9]))
-
+            for linhas in arquivo_csv:
+              if linhas[1] =='1.#QNANe+0000' or linhas[1]=='1.#QNANe+000':
+                linhas[1] = '0'
+                u.append(float(linhas[1]))
+                x1.append(float(linhas[9]))
+              else:
+                u.append(float(linhas[1]))
+                x1.append(float(linhas[9]))
       arquivo.close()      
       plt.title('Perfil da velocidade em x')
       plt.xlabel('x')
@@ -46,11 +50,15 @@ def grafico_velocidadev():
             continue
           else:
             for linhas in arquivo_csv:
-                
-              v.append(float(linhas[2]))  
-              x2.append(float(linhas[9]))
+              if linhas[2] =='1.#QNANe+0000' or linhas[1]=='1.#QNANe+000':
+                linhas[2] = '0'
+                v.append(float(linhas[2]))
+                x2.append(float(linhas[9]))
+              else:
+                  v.append(float(linhas[2]))  
+                  x2.append(float(linhas[9]))
       arquivo.close()
-      plt.title('Perfil da pressão em x')
+      plt.title('Perfil da velocidade em y')
       plt.xlabel('y')
       plt.ylabel('v')
       plt.plot(x2,v)
@@ -73,11 +81,16 @@ def grafico_velocidadew():
             continue
           else:
             for linhas in arquivo_csv:
-              w.append(float(linhas[3]))
-              x3.append(float(linhas[9]))
+              if linhas[3] =='1.#QNANe+0000' or linhas[1]=='1.#QNANe+000':
+                linhas[3] = '0'
+                w.append(float(linhas[3]))
+                x3.append(float(linhas[9]))
+              else:
+                w.append(float(linhas[3]))
+                x3.append(float(linhas[9]))
               
       arquivo.close()       
-      plt.title('Perfil da pressão em x')
+      plt.title('Perfil da velocidade em Z')
       plt.xlabel('z')
       plt.ylabel('w')
       plt.plot(x3,w)
@@ -99,8 +112,13 @@ def grafico_pressaox():
             continue
           else:
             for linhas in arquivo_csv:
-              p.append(float(linhas[0]))  
-              x1.append(float(linhas[9]))
+              if linhas[0] =='1.#QNANe+0000' or linhas[1]=='1.#QNANe+000':
+                linhas[0] = '0'
+                p.append(float(linhas[0]))
+                x1.append(float(linhas[9]))
+              else:
+                p.append(float(linhas[0]))  
+                x1.append(float(linhas[9]))
       arquivo.close()        
       plt.title('Perfil da pressão em x')
       plt.xlabel('x')
@@ -126,8 +144,13 @@ def grafico_pressaoy():
             continue
           else:
             for linhas in arquivo_csv:
-              p.append(float(linhas[0]))            
-              x2.append(float(linhas[10]))
+              if linhas[0] =='1.#QNANe+0000' or linhas[1]=='1.#QNANe+000':
+                linhas[0] = '0'
+                p.append(float(linhas[0]))
+                x2.append(float(linhas[10]))
+              else:
+                p.append(float(linhas[0]))            
+                x2.append(float(linhas[10]))
       arquivo.close()      
       plt.title('Perfil da pressão em y')
       plt.xlabel('x')
@@ -151,8 +174,13 @@ def grafico_pressaoz():
             continue
           else:
             for linhas in arquivo_csv:
-              p.append(float(linhas[0]))  
-              x3.append(float(linhas[11]))
+              if linhas[0] =='1.#QNANe+0000' or linhas[1]=='1.#QNANe+000':
+                linhas[0] = '0'
+                p.append(float(linhas[0]))
+                x3.append(float(linhas[11]))
+              else:
+                p.append(float(linhas[0]))  
+                x3.append(float(linhas[11]))
       arquivo.close()        
       plt.title('Perfil da pressão em z')
       plt.xlabel('x')
@@ -180,5 +208,5 @@ while True:
     elif grafico == 0:
       break
   except:
-    print('\nCaractere inválido, tente novamente:')
+    print('Caractere invalido, tente novamente')
 print('\nFinalizado')
